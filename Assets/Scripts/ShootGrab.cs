@@ -17,6 +17,8 @@ public class ShootGrab : MonoBehaviour
     private bool toggleGrab; // Tracks the toggle state of grabbing
     private int ammoCount;
 
+    public GameObject bulletPrefeb; 
+
     // Update is called once per frame
     void Update()
     {
@@ -25,6 +27,7 @@ public class ShootGrab : MonoBehaviour
             toggleGrab = !toggleGrab;
             if (toggleGrab && !isGrabbing)
             {
+                Debug.Log("grab1");
                 GrabObject();
                 ammoCount = 3;
             }
@@ -56,9 +59,10 @@ public class ShootGrab : MonoBehaviour
         RaycastHit[] hits;
 
         hits = Physics.SphereCastAll(transform.position, grabRadius, transform.forward, 100.0f, grabMask);
-
+        Debug.Log(hits.Length);
         if (hits.Length > 0)
         {
+            Debug.Log("grab2");
             isGrabbing = true;
 
             int closestHit = 0;
@@ -70,13 +74,19 @@ public class ShootGrab : MonoBehaviour
                     closestHit = i;
                 }
             }
+            Debug.Log(hits[closestHit].transform.CompareTag("Sack"));
+            if (hits[closestHit].transform.CompareTag("Sack"))
+            {
+                GameObject newBullet = Instantiate(bulletPrefeb, transform.position, Quaternion.identity);
 
-            currGrabbedObject = hits[closestHit].transform.gameObject; // grab the closest object
-            currGrabbedObject.GetComponent<Rigidbody>().isKinematic = true; // the grabbed object should not have gravity
+                currGrabbedObject = newBullet; // grab the closest object
+                currGrabbedObject.GetComponent<Rigidbody>().isKinematic = true; // the grabbed object should not have gravity
 
-            // grab object will follow our hands
-            currGrabbedObject.transform.position = transform.position;
-            currGrabbedObject.transform.parent = transform;
+                // grab object will follow our hands
+                currGrabbedObject.transform.position = transform.position;
+                currGrabbedObject.transform.parent = transform;
+            }
+            
         }
     }
 

@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Ground
   - Ball
+  - Small
+  - Big
+  - Sack
+  - Pot
   layers:
   - Default
   - TransparentFX
