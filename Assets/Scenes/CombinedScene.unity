@@ -6987,7 +6987,7 @@ GameObject:
   - component: {fileID: 1273010066}
   - component: {fileID: 1273010067}
   - component: {fileID: 1273010068}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Ground
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -8940,7 +8940,7 @@ MonoBehaviour:
   teleportButtonName: LHandTrigger
   teleportMask:
     serializedVersion: 2
-    m_Bits: 2147483647
+    m_Bits: 8
   maxTeleportDistance: 30
   timeBetweenPoints: 0.1
   teleportLineNumPoints: 25
@@ -8989,7 +8989,7 @@ BoxCollider:
   m_GameObject: {fileID: 1589076339}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1.1287887, z: 1}
   m_Center: {x: 0, y: 0.6738776, z: 0}

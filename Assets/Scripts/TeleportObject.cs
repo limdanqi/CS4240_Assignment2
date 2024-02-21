@@ -49,7 +49,7 @@ public class TeleportObject : MonoBehaviour
 
     void UpdateTeleportIndicators(bool status)
     {
-        //teleportSpotIndicator.SetActive(status);
+        teleportSpotIndicator.SetActive(status);
         teleportLineIndicator.SetActive(status);
     }
 
@@ -63,9 +63,11 @@ public class TeleportObject : MonoBehaviour
             UpdateTeleportIndicators(true);
 
             teleportedLocation = transform.position + transform.forward * rayHitInfo.distance;
+            teleportedLocation.y = 0;
 
             // update teleport spot indicator
             teleportSpotIndicator.transform.position = teleportedLocation;
+            teleportSpotIndicator.transform.rotation = Quaternion.Euler(Vector3.zero);
 
             // update teleport line indicator
             UpdateTeleportLineIndicator(teleportLineIndicator.gameObject.GetComponent<LineRenderer>(), transform.position, teleportedLocation);
@@ -78,7 +80,7 @@ public class TeleportObject : MonoBehaviour
         lr.transform.parent = null;
         lr.positionCount = Mathf.CeilToInt(teleportLineNumPoints / timeBetweenPoints) + 1;
 
-        float throwStrength = 10;
+        /*float throwStrength = 10;
         float mass = 1;
         Vector3 startVelocity = throwStrength * transform.forward / mass;
 
@@ -92,9 +94,30 @@ public class TeleportObject : MonoBehaviour
             point.y = startPos.y + startVelocity.y * time + (Physics.gravity.y / 2f * time * time);
             points[i] = point;
 
+        }*/
+        Vector3[] points = new Vector3[lr.positionCount];
+
+        for (int i = 0; i < lr.positionCount; i++)
+        {
+            float t = i / (float)(lr.positionCount - 1);
+            Vector3 pointOnCurve = BezierCurve(startPos, (startPos + endPos) / 2f + Vector3.up * 1, endPos, t);
+            points[i] = pointOnCurve;
         }
 
         lr.SetPositions(points);
+    }
+
+    Vector3 BezierCurve(Vector3 p0, Vector3 p1, Vector3 p2, float t)
+    {
+        float u = 1 - t;
+        float t2 = t * t;
+        float u2 = u * u;
+        float u3 = u2 * u;
+        float t3 = t2 * t;
+
+        Vector3 p = u3 * p0 + 3 * u2 * t * p1 + 3 * u * t2 * p2 + t3 * p2;
+
+        return p;
     }
 
     void Teleport()
