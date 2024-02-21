@@ -9,6 +9,7 @@ TagManager:
   - Small
   - Big
   - Sack
+  - Pot
   layers:
   - Default
   - TransparentFX

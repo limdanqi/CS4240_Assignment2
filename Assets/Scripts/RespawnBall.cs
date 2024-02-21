@@ -16,8 +16,10 @@ public class RespawnBall : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        
-        Destroy(gameObject);
+        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Pot"))
+        {
+            Destroy(gameObject);
+        }
         
     }
 

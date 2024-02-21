@@ -505,6 +505,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: r_hand_skeletal_lowres
       objectReference: {fileID: 0}
+    - target: {fileID: 100054, guid: d0c255d07fd68f14b94e55d388e7e6bb, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 400054, guid: d0c255d07fd68f14b94e55d388e7e6bb, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -1512,6 +1516,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pot 1.02
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f6cfbb75aabdd4b47989cbb50d89d3e8, type: 3}
+      propertyPath: m_TagString
+      value: Pot
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6cfbb75aabdd4b47989cbb50d89d3e8, type: 3}
 --- !u!4 &306784771 stripped
@@ -1620,6 +1628,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: df067731b7ee08b48ad97879d5f82cd1, type: 3}
       propertyPath: m_Name
       value: Pot 1.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: df067731b7ee08b48ad97879d5f82cd1, type: 3}
+      propertyPath: m_TagString
+      value: Pot
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df067731b7ee08b48ad97879d5f82cd1, type: 3}
@@ -1957,6 +1969,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a6fa4c58170ec0b45bc58a2e7e054b60, type: 3}
       propertyPath: m_Name
       value: Pot 1.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a6fa4c58170ec0b45bc58a2e7e054b60, type: 3}
+      propertyPath: m_TagString
+      value: Pot
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a6fa4c58170ec0b45bc58a2e7e054b60, type: 3}
@@ -2362,6 +2378,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pot 3.3
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a6fa4c58170ec0b45bc58a2e7e054b60, type: 3}
+      propertyPath: m_TagString
+      value: Pot
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a6fa4c58170ec0b45bc58a2e7e054b60, type: 3}
 --- !u!1 &512079408 stripped
@@ -2473,6 +2493,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: df067731b7ee08b48ad97879d5f82cd1, type: 3}
       propertyPath: m_Name
       value: Pot 1.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: df067731b7ee08b48ad97879d5f82cd1, type: 3}
+      propertyPath: m_TagString
+      value: Pot
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df067731b7ee08b48ad97879d5f82cd1, type: 3}
@@ -2644,6 +2668,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 093095a20fcd1c64b9446489b9d5b615, type: 3}
       propertyPath: m_Name
       value: Pot 1.06 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 093095a20fcd1c64b9446489b9d5b615, type: 3}
+      propertyPath: m_TagString
+      value: Pot
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 093095a20fcd1c64b9446489b9d5b615, type: 3}
@@ -3082,7 +3110,7 @@ GameObject:
   - component: {fileID: 672747917}
   m_Layer: 0
   m_Name: Pot 1.09
-  m_TagString: Untagged
+  m_TagString: Pot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4622,6 +4650,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pot 1.01 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a8eb40f11bdae5f4a9bd59a2e8e8f9af, type: 3}
+      propertyPath: m_TagString
+      value: Pot
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8eb40f11bdae5f4a9bd59a2e8e8f9af, type: 3}
 --- !u!4 &939926580 stripped
@@ -4730,6 +4762,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a8eb40f11bdae5f4a9bd59a2e8e8f9af, type: 3}
       propertyPath: m_Name
       value: Pot 1.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a8eb40f11bdae5f4a9bd59a2e8e8f9af, type: 3}
+      propertyPath: m_TagString
+      value: Pot
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8eb40f11bdae5f4a9bd59a2e8e8f9af, type: 3}
@@ -4874,6 +4910,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a8eb40f11bdae5f4a9bd59a2e8e8f9af, type: 3}
       propertyPath: m_Name
       value: Pot 1.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a8eb40f11bdae5f4a9bd59a2e8e8f9af, type: 3}
+      propertyPath: m_TagString
+      value: Pot
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8eb40f11bdae5f4a9bd59a2e8e8f9af, type: 3}
@@ -5912,6 +5952,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pot 1.02
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f6cfbb75aabdd4b47989cbb50d89d3e8, type: 3}
+      propertyPath: m_TagString
+      value: Pot
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6cfbb75aabdd4b47989cbb50d89d3e8, type: 3}
 --- !u!1 &1190543821 stripped
@@ -6430,6 +6474,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pot1G1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 030d4a50bcfca364fb5b7e4a1d47f50b, type: 3}
+      propertyPath: m_TagString
+      value: Pot
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 030d4a50bcfca364fb5b7e4a1d47f50b, type: 3}
 --- !u!1 &1256442027 stripped
@@ -6648,6 +6696,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 093095a20fcd1c64b9446489b9d5b615, type: 3}
       propertyPath: m_Name
       value: Pot 3.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 093095a20fcd1c64b9446489b9d5b615, type: 3}
+      propertyPath: m_TagString
+      value: Pot
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 093095a20fcd1c64b9446489b9d5b615, type: 3}
@@ -7749,6 +7801,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pot 1.04 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 030d4a50bcfca364fb5b7e4a1d47f50b, type: 3}
+      propertyPath: m_TagString
+      value: Pot
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 030d4a50bcfca364fb5b7e4a1d47f50b, type: 3}
 --- !u!65 &1447859560
@@ -8358,26 +8414,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Controller: 1
---- !u!114 &1576407274
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1576407272}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bedb966b169f5db46aadd2bf7d3f7c4c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Controller: 1
-  grabButtonName: LHandTrigger
-  shootForce: 4
-  grabRadius: 0.1
-  grabMask:
-    serializedVersion: 2
-    m_Bits: 64
-  bulletPrefeb: {fileID: 7665934732678346985, guid: 1dd6fb143edbd94439c07c8a383aa61f, type: 3}
 --- !u!4 &1576407276 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400054, guid: ca20b3907ff1c794cb89c1ad2cce8282, type: 3}
@@ -9089,6 +9125,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pot 3.2
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a8eb40f11bdae5f4a9bd59a2e8e8f9af, type: 3}
+      propertyPath: m_TagString
+      value: Pot
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8eb40f11bdae5f4a9bd59a2e8e8f9af, type: 3}
 --- !u!1 &1807055323 stripped
@@ -9728,7 +9768,7 @@ GameObject:
   - component: {fileID: 1966272473}
   m_Layer: 0
   m_Name: Pot 3.4
-  m_TagString: Untagged
+  m_TagString: Pot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
