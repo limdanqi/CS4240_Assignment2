@@ -4,107 +4,106 @@ using UnityEngine;
 
 public class TeleportObject : MonoBehaviour
 {
+    public GameObject objectToBeTeleported;
+    public GameObject teleportSpotIndicator;
+    public GameObject teleportLineIndicator;
+
     public OVRInput.Controller Controller;
 
     public string teleportButtonName;
     public LayerMask teleportMask;
-    public GameObject objectToBeTeleported;
-    public float maxDistance = 100.0f;
-    public float teleportArcWidthMultiplier;
+    public float maxTeleportDistance = 100.0f;
+    [Range(0.01f, 0.25f)][SerializeField] private float timeBetweenPoints = 0.1f;
+    [Range(10, 100)][SerializeField] private int teleportLineNumPoints = 25;
 
-    private bool isPressingTeleport = false;
+
+    private bool isTeleporting;
     private RaycastHit rayHitInfo;
-    private LineRenderer teleportArc;
+    private Vector3 teleportedLocation;
 
-    private int numPoints = 2;
 
-    private void Start()
+    // Start is called before the first frame update
+    void Start()
     {
-        teleportArc = gameObject.AddComponent<LineRenderer>();
-        teleportArc.material = new Material(Shader.Find("Sprites/Default"));
-        teleportArc.widthMultiplier = teleportArcWidthMultiplier;
-        teleportArc.positionCount = numPoints;
-        teleportArc.startColor = Color.blue;
-        teleportArc.endColor = Color.blue;
-        teleportArc.useWorldSpace = false;
-        teleportArc.enabled = false;
+        UpdateTeleportIndicators(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        // if you hold teleport button
-        if (!isPressingTeleport && Input.GetAxis(teleportButtonName) == 1)
+        // if you press button
+        if (Input.GetAxis(teleportButtonName) > 0)
         {
-            Debug.Log("pressed teleport");
-            isPressingTeleport = true;
+            isTeleporting = true;
             ShowTeleportPreview();
         }
 
-        // if you release teleport button
-        if (isPressingTeleport && Input.GetAxis(teleportButtonName) < 1)
+        // if you let go of button
+        if (isTeleporting && Input.GetAxis(teleportButtonName) == 0)
         {
-            Debug.Log("released teleport");
-            isPressingTeleport = false;
+            isTeleporting = false;
             Teleport();
+            UpdateTeleportIndicators(false);
         }
     }
 
-
+    void UpdateTeleportIndicators(bool status)
+    {
+        //teleportSpotIndicator.SetActive(status);
+        teleportLineIndicator.SetActive(status);
+    }
 
     void ShowTeleportPreview()
     {
-        bool hit = Physics.Raycast(transform.position, transform.forward, out rayHitInfo, maxDistance, teleportMask);
+        // Check if there is a valid teleport location
+        bool hasValidTeleportLocation = Physics.Raycast(transform.position, transform.forward, out rayHitInfo, maxTeleportDistance, teleportMask);
 
-        if (hit)
+        if (hasValidTeleportLocation)
         {
-            // show blue preview
-            Debug.Log("Did Hit");
-            Debug.Log("transform forward " + transform.forward);
-            teleportArc.enabled = true;
-            teleportArc.SetPositions(GetTeleportArcPoints());
+            UpdateTeleportIndicators(true);
 
+            teleportedLocation = transform.position + transform.forward * rayHitInfo.distance;
 
+            // update teleport spot indicator
+            teleportSpotIndicator.transform.position = teleportedLocation;
+
+            // update teleport line indicator
+            UpdateTeleportLineIndicator(teleportLineIndicator.gameObject.GetComponent<LineRenderer>(), transform.position, teleportedLocation);
         }
-        else
-        {
-            teleportArc.enabled = false;
-        }
-        //else
-        //{
-        //    // show red preview
-        //    Debug.Log("Did not Hit");
-        //    teleportArc.startColor = Color.red;
-        //    teleportArc.endColor = Color.red;
-        //}
-
-
-
 
     }
 
-    Vector3[] GetTeleportArcPoints()
+    void UpdateTeleportLineIndicator(LineRenderer lr, Vector3 startPos, Vector3 endPos)
     {
-        Vector3[] res = new Vector3[numPoints];
+        lr.transform.parent = null;
+        lr.positionCount = Mathf.CeilToInt(teleportLineNumPoints / timeBetweenPoints) + 1;
 
-        res[0] = transform.position;
-        res[1] = transform.position + transform.forward * rayHitInfo.distance;
+        float throwStrength = 10;
+        float mass = 1;
+        Vector3 startVelocity = throwStrength * transform.forward / mass;
 
-        Debug.Log("point 0 " + res[0]);
-        Debug.Log("point 1 " + res[1]);
+        Vector3[] points = new Vector3[lr.positionCount];
+        points[0] = startPos;
+        int i = 0;
+        for (float time = 0; time < teleportLineNumPoints; time += timeBetweenPoints)
+        {
+            i++;
+            Vector3 point = startPos + time * startVelocity;
+            point.y = startPos.y + startVelocity.y * time + (Physics.gravity.y / 2f * time * time);
+            points[i] = point;
 
-        return res;
+        }
+
+        lr.SetPositions(points);
     }
 
     void Teleport()
     {
-        if (rayHitInfo.collider != null)
+        if (rayHitInfo.collider != null || rayHitInfo.collider.CompareTag("Ground"))
         {
-            objectToBeTeleported.transform.position = transform.position + transform.forward * rayHitInfo.distance;
-            Debug.Log("Teleported " + objectToBeTeleported.transform.position);
+            Debug.Log(rayHitInfo.collider);
+            objectToBeTeleported.transform.position = teleportedLocation;
+            Debug.Log("obj teleported to " + objectToBeTeleported.transform.position);
         }
-
     }
-
-
 }
