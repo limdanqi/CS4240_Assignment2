@@ -83,8 +83,8 @@ public class ShootGrab : MonoBehaviour
                 currGrabbedObject.GetComponent<Rigidbody>().isKinematic = true; // the grabbed object should not have gravity
 
                 // grab object will follow our hands
-                currGrabbedObject.transform.position = transform.position;
-                currGrabbedObject.transform.parent = transform;
+                currGrabbedObject.transform.parent = transform.Find("AttachmentPt");
+                currGrabbedObject.transform.localPosition = Vector3.zero;
             }
             
         }
@@ -106,8 +106,10 @@ public class ShootGrab : MonoBehaviour
     void ShootObject()
     {
         GameObject clone = Instantiate(currGrabbedObject, currGrabbedObject.transform.position, currGrabbedObject.transform.rotation);
+        
         clone.GetComponent<RespawnBall>().SetAsClone();
-        clone.transform.parent = null;
+        clone.transform.parent = transform.Find("AttachmentPt");
+        clone.transform.localPosition = Vector3.zero;
         clone.GetComponent<Rigidbody>().isKinematic = false;
         Vector3 shootDirection = transform.forward;
         Debug.Log(shootDirection);
