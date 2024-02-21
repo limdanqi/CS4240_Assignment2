@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Ground
   - Ball
+  - Small
+  - Big
+  - Sack
   layers:
   - Default
   - TransparentFX

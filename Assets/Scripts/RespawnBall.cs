@@ -16,19 +16,9 @@ public class RespawnBall : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            if (isOriginal)
-            {
-                rb.isKinematic = true;
-                transform.position = originalPosition;
-                rb.isKinematic = false;
-            }
-            else
-            {
-                Destroy(gameObject);
-            }
-        }
+        
+        Destroy(gameObject);
+        
     }
 
     public void SetAsClone()
