@@ -5,12 +5,16 @@ using UnityEngine;
 public class PotHitScript : MonoBehaviour
 {
     Rigidbody rb;
+    public GameObject bigFlower;
+
     private static int pointCount = 0;
+
     void Start()
     {
         resetCount();
         rb = GetComponent<Rigidbody>();
-        
+        // bigFlower = GameObject.FindWithTag("Big"); 
+        bigFlower.SetActive(false);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -18,7 +22,7 @@ public class PotHitScript : MonoBehaviour
         if (collision.gameObject.CompareTag("Ball"))
         {
             pointCount++;
-            Destroy(this.gameObject);
+            bigFlower.SetActive(true);
         }
     }
 
