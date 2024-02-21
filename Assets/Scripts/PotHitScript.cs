@@ -9,6 +9,8 @@ public class PotHitScript : MonoBehaviour
 
     private static int pointCount = 0;
 
+    public AudioSource audioPlayer;
+
     void Start()
     {
         resetCount();
@@ -23,6 +25,7 @@ public class PotHitScript : MonoBehaviour
         {
             pointCount++;
             bigFlower.SetActive(true);
+            audioPlayer.Play();
         }
     }
 
