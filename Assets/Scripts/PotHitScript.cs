@@ -21,7 +21,7 @@ public class PotHitScript : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Ball"))
+        if (collision.gameObject.CompareTag("Ball") && !bigFlower.activeSelf)
         {
             pointCount++;
             bigFlower.SetActive(true);

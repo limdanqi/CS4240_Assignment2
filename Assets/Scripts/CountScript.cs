@@ -11,7 +11,7 @@ public class CountScript : MonoBehaviour
     void Update()
     {
         int hitCount = PotHitScript.getScore();
-        scoreCountText.text = hitCount.ToString();
+        scoreCountText.text = "Score: " + hitCount.ToString();
 
     }
 }
