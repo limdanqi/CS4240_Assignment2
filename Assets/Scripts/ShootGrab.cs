@@ -17,7 +17,9 @@ public class ShootGrab : MonoBehaviour
     private bool toggleGrab; // Tracks the toggle state of grabbing
     private int ammoCount;
 
-    public GameObject bulletPrefeb; 
+    public GameObject bulletPrefeb;
+
+    public AudioSource pickupSound;
 
     // Update is called once per frame
     void Update()
@@ -86,6 +88,7 @@ public class ShootGrab : MonoBehaviour
                 currGrabbedObject.transform.parent = transform.Find("AttachmentPt");
                 currGrabbedObject.transform.localPosition = Vector3.zero;
             }
+            pickupSound.Play();
             
         }
     }

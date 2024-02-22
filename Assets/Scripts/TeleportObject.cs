@@ -1,3 +1,4 @@
+using Meta.Voice.Audio;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,10 +17,11 @@ public class TeleportObject : MonoBehaviour
     [Range(0.01f, 0.25f)][SerializeField] private float timeBetweenPoints = 0.1f;
     [Range(10, 100)][SerializeField] private int teleportLineNumPoints = 25;
 
-
     private bool isTeleporting;
     private RaycastHit rayHitInfo;
     private Vector3 teleportedLocation;
+
+    public AudioSource teleportSound;
 
 
     // Start is called before the first frame update
@@ -127,6 +129,7 @@ public class TeleportObject : MonoBehaviour
             Debug.Log(rayHitInfo.collider);
             objectToBeTeleported.transform.position = teleportedLocation;
             Debug.Log("obj teleported to " + objectToBeTeleported.transform.position);
+            teleportSound.Play();
         }
     }
 }
